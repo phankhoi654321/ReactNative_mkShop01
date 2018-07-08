@@ -45,15 +45,17 @@ export default class SignUpScreen_UiLib extends Component {
             underlineColor="#ee5253"
             dark10
           />
-          <TextInput
-            text70
-            placeholder="Email"
-            placeholderTextColor="#ee5253"
-            floatingPlaceholder
-            floatingPlaceholderColor="#ee5253"
-            underlineColor="#ee5253"
-            dark10
-          />
+          <View>
+            <TextInput
+              text70
+              placeholder="Email"
+              placeholderTextColor="#ee5253"
+              floatingPlaceholder
+              floatingPlaceholderColor="#ee5253"
+              underlineColor="#ee5253"
+              dark10
+            />
+          </View>
           <TextInput
             text70
             placeholder="Password"

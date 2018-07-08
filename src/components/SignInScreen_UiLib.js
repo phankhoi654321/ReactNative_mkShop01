@@ -9,10 +9,32 @@ import {
   Typography,
   Colors
 } from "react-native-ui-lib";
+import firebase from "react-native-firebase";
 import ShoppingBackground from "../images/shopping.jpg";
 import SignUpScreen_UiLib from "./SignUpScreen_UiLib";
 
 export default class SignInScreen_UiLib extends Component {
+  componentDidMount() {
+    //Retrieve the current registration token   https://rnfirebase.io/docs/v4.2.x/messaging/device-token
+    firebase
+      .messaging()
+      .getToken()
+      .then(fcmToken => {
+        if (fcmToken) {
+          // user has a device token
+          console.log("Token: ", fcmToken);
+        } else {
+          // user doesn't have a device token yet
+        }
+      });
+
+    firebase
+      .messaging()
+      .hasPermission()
+      .then(enabled => {
+        console.log("HasPermission: ", enabled);
+      });
+  }
   onFocus() {
     this.setState({
       borderBottomColor: "green"
@@ -58,7 +80,7 @@ export default class SignInScreen_UiLib extends Component {
               orange30
               label="Sign Up"
               marginT-20
-              onPress={() => this.props.navigation.navigate('SignUpScreen')}
+              onPress={() => this.props.navigation.navigate("SignUpScreen")}
             />
           </View>
         </View>
