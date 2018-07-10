@@ -26,11 +26,14 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        birthday: req.body.birthday
+        birthday: req.body.birthday,
+        login: true
       });
       newUser
         .save() // this come from mongoose
-        .then(user => res.json(user)) // this is the promis
+        .then(user => {
+          res.json(user);
+        }) // this is the promis
         .catch(err => console.log(err));
     }
   });

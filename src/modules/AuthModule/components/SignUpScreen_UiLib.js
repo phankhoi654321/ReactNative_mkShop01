@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import { connect } from "react-redux";
+// import { registerUser } from "../actions";
 import { StyleSheet } from "react-native";
 import {
   View,
@@ -11,10 +13,12 @@ import {
   TextArea,
   Picker
 } from "react-native-ui-lib";
-import ShoppingBackground from "../images/shopping.jpg";
+import ShoppingBackground from "../../../images/shopping.jpg";
 import DatePicker from "react-native-datepicker";
+import isEmpty from "./is-empty";
 
 export default class SignUpScreen_UiLib extends Component {
+  // class SignUpScreen_UiLib extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,11 +28,24 @@ export default class SignUpScreen_UiLib extends Component {
       password: "",
       confirmPassword: "",
       birthday: null,
-      errors: {}
+      errors: {},
+      login: false
     };
+    this.onChange = this.onChange.bind(this);
+    this.onRegister = this.onRegister.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value }); //target.name is array everything come from state
+    // console.log(e.target)
   }
 
-  onRegister() {
+  onRegister(e) {
+    // e.preventDefault();
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -36,6 +53,18 @@ export default class SignUpScreen_UiLib extends Component {
       confirmPassword: this.state.confirmPassword,
       birthday: this.state.birthday
     };
+
+    // console.log(isEmpty(this.state.errors));
+    // console.log(isEmpty(this.state.email));
+    console.log(isEmpty(this.state.login));
+
+    this.props.registerUser(newUser, this.props.history);
+    if (this.state.login) {
+      // console.log(isEmpty(this.state.errors));
+      // console.log(isEmpty(this.state.email));
+      // console.log(isEmpty(newUser));
+      this.props.navigation.navigate("SignInScreen");
+    }
   }
 
   render() {
@@ -64,7 +93,8 @@ export default class SignUpScreen_UiLib extends Component {
               this.setState({ name: text });
               // ,console.log("state email: " + this.state.email);
             }}
-            error={this.state.error}
+            // onChange={this.onChange}
+            errors={this.state.errors}
           />
           <View>
             <TextInput
@@ -82,7 +112,8 @@ export default class SignUpScreen_UiLib extends Component {
                 this.setState({ email: text });
                 // ,console.log("state email: " + this.state.email);
               }}
-              error={this.state.error}
+              // onChange={this.onChange}
+              errors={this.state.errors}
             />
           </View>
           <TextInput
@@ -98,7 +129,8 @@ export default class SignUpScreen_UiLib extends Component {
               this.setState({ password: text });
               // ,console.log("state email: " + this.state.email);
             }}
-            error={this.state.error}
+            // onChange={this.onChange}
+            errors={this.state.errors}
           />
           <TextInput
             text70
@@ -113,7 +145,8 @@ export default class SignUpScreen_UiLib extends Component {
               this.setState({ confirmPassword: text });
               // ,console.log("state email: " + this.state.email);
             }}
-            error={this.state.error}
+            // onChange={this.onChange}
+            errors={this.state.errors}
           />
           <View style={{ marginTop: 10 }}>
             <Text
@@ -166,7 +199,13 @@ export default class SignUpScreen_UiLib extends Component {
           </View>
 
           <View marginT-50 center>
-            <Button text70 white background-orange30 label="Register" />
+            <Button
+              text70
+              white
+              background-orange30
+              label="Register"
+              onPress={this.onRegister}
+            />
           </View>
         </View>
       </View>
@@ -200,3 +239,14 @@ Typography.loadTypographies({
   h1: { fontSize: 40, fontWeight: "300", lineHeight: 80 },
   h2: { fontSize: 46, fontWeight: "300", lineHeight: 64 }
 });
+
+// const mapStateToProps = state => {
+//   return {
+//     errors: state.errors
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   { registerUser }
+// )(SignUpScreen_UiLib);

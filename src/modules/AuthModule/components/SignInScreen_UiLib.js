@@ -10,7 +10,7 @@ import {
   Colors
 } from "react-native-ui-lib";
 import firebase from "react-native-firebase";
-import ShoppingBackground from "../images/shopping.jpg";
+import ShoppingBackground from "../../../images/shopping.jpg";
 import SignUpScreen_UiLib from "./SignUpScreen_UiLib";
 
 export default class SignInScreen_UiLib extends Component {
@@ -35,11 +35,12 @@ export default class SignInScreen_UiLib extends Component {
         console.log("HasPermission: ", enabled);
       });
   }
-  onFocus() {
-    this.setState({
-      borderBottomColor: "green"
-    });
-  }
+
+  // onFocus() {
+  //   this.setState({
+  //     borderBottomColor: "green"
+  //   });
+  // }
   render() {
     return (
       <View style={{ flex: 1 }}>
