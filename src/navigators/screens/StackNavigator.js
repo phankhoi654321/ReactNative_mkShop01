@@ -12,6 +12,7 @@ const StackNavigator = createStackNavigator({
   },
   SignUpScreen: {
     screen: SignUpContainer,
+    // screen: SignUpScreen_UiLib,
     navigationOptions: {
       title: "Sign Up"
     }

@@ -4,7 +4,8 @@ const axiosClient = axios.create({
   baseURL: "http://localhost:4000",
   headers: {
     "Content-Type": "application/json"
-  }
+  },
+  responseType: "json"
 });
 
 export default axiosClient;

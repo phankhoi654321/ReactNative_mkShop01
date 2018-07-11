@@ -26,8 +26,8 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        birthday: req.body.birthday,
-        login: true
+        birthday: req.body.birthday
+        // login: true
       });
       newUser
         .save() // this come from mongoose

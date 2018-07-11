@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import { registerUser } from "../actions";
+import { connect } from "react-redux";
+import { registerUser } from "../actions";
 import { StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 import {
   View,
   TextInput,
@@ -18,9 +19,8 @@ import DatePicker from "react-native-datepicker";
 import isEmpty from "./is-empty";
 
 export default class SignUpScreen_UiLib extends Component {
-  // class SignUpScreen_UiLib extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       isFocused: false,
       name: "",
@@ -28,24 +28,18 @@ export default class SignUpScreen_UiLib extends Component {
       password: "",
       confirmPassword: "",
       birthday: null,
-      errors: {},
-      login: false
+      errors: {}
     };
-    this.onChange = this.onChange.bind(this);
     this.onRegister = this.onRegister.bind(this);
   }
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps.errors);
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
   }
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value }); //target.name is array everything come from state
-    // console.log(e.target)
-  }
 
   onRegister(e) {
-    // e.preventDefault();
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -53,22 +47,12 @@ export default class SignUpScreen_UiLib extends Component {
       confirmPassword: this.state.confirmPassword,
       birthday: this.state.birthday
     };
-
-    // console.log(isEmpty(this.state.errors));
-    // console.log(isEmpty(this.state.email));
-    console.log(isEmpty(this.state.login));
-
-    this.props.registerUser(newUser, this.props.history);
-    if (this.state.login) {
-      // console.log(isEmpty(this.state.errors));
-      // console.log(isEmpty(this.state.email));
-      // console.log(isEmpty(newUser));
-      this.props.navigation.navigate("SignInScreen");
-    }
+    this.props.registerUser(newUser);
   }
 
   render() {
     const { isFocused } = this.state;
+    const { errors } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <Image
@@ -91,10 +75,8 @@ export default class SignUpScreen_UiLib extends Component {
             dark10
             onChangeText={text => {
               this.setState({ name: text });
-              // ,console.log("state email: " + this.state.email);
             }}
-            // onChange={this.onChange}
-            errors={this.state.errors}
+            error={errors.name}
           />
           <View>
             <TextInput
@@ -105,15 +87,10 @@ export default class SignUpScreen_UiLib extends Component {
               floatingPlaceholderColor="#ee5253"
               underlineColor="#ee5253"
               dark10
-              // onChangeText={text =>
-              //   this.setState({ error: text ? "" : "This field is required" })
-              // }
               onChangeText={text => {
                 this.setState({ email: text });
-                // ,console.log("state email: " + this.state.email);
               }}
-              // onChange={this.onChange}
-              errors={this.state.errors}
+              error={errors.email}
             />
           </View>
           <TextInput
@@ -127,10 +104,8 @@ export default class SignUpScreen_UiLib extends Component {
             dark10
             onChangeText={text => {
               this.setState({ password: text });
-              // ,console.log("state email: " + this.state.email);
             }}
-            // onChange={this.onChange}
-            errors={this.state.errors}
+            error={errors.password}
           />
           <TextInput
             text70
@@ -143,10 +118,8 @@ export default class SignUpScreen_UiLib extends Component {
             dark10
             onChangeText={text => {
               this.setState({ confirmPassword: text });
-              // ,console.log("state email: " + this.state.email);
             }}
-            // onChange={this.onChange}
-            errors={this.state.errors}
+            error={errors.confirmPassword}
           />
           <View style={{ marginTop: 10 }}>
             <Text
@@ -239,6 +212,12 @@ Typography.loadTypographies({
   h1: { fontSize: 40, fontWeight: "300", lineHeight: 80 },
   h2: { fontSize: 46, fontWeight: "300", lineHeight: 64 }
 });
+
+SignUpScreen_UiLib.propTypes = {
+  // registerUser: PropTypes.func.isRequired, //registerUser is function, make it is required
+  // auth: PropTypes.object.isRequired, //auth is a object, make it is required
+  // errors: PropTypes.object.isRequired
+};
 
 // const mapStateToProps = state => {
 //   return {
