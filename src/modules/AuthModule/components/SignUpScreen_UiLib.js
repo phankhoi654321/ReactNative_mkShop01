@@ -72,6 +72,7 @@ export default class SignUpScreen_UiLib extends Component {
             floatingPlaceholderColor="#ee5253"
             floatingPlaceholder
             underlineColor="#ee5253"
+            autoCapitalize="none"
             dark10
             onChangeText={text => {
               this.setState({ name: text });
@@ -86,6 +87,7 @@ export default class SignUpScreen_UiLib extends Component {
               floatingPlaceholder
               floatingPlaceholderColor="#ee5253"
               underlineColor="#ee5253"
+              autoCapitalize="none"
               dark10
               onChangeText={text => {
                 this.setState({ email: text });
@@ -102,6 +104,7 @@ export default class SignUpScreen_UiLib extends Component {
             floatingPlaceholderColor="#ee5253"
             underlineColor="#ee5253"
             dark10
+            autoCapitalize="none"
             onChangeText={text => {
               this.setState({ password: text });
             }}
@@ -115,6 +118,7 @@ export default class SignUpScreen_UiLib extends Component {
             floatingPlaceholder
             floatingPlaceholderColor="#ee5253"
             underlineColor="#ee5253"
+            autoCapitalize="none"
             dark10
             onChangeText={text => {
               this.setState({ confirmPassword: text });
