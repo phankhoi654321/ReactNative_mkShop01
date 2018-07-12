@@ -6,12 +6,7 @@ import axiosClient from "../../../config/axiosClient";
 export const registerUser = userdata => dispatch => {
   axiosClient
     .post("/api/users/register", userdata)
-    .then(res =>
-      dispatch({
-        type: "REGISTER"
-        // payload:
-      })
-    )
+    .then(res => navigation.dispatch({ type: "SignInScreen" }))
     // err.response tra ve nhung error tu server, .data de lay error
     .catch(err => {
       console.log(err.response.data),

@@ -4,17 +4,23 @@ import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import errorReducer from "./src/modules/AuthModule/reducers/errorReducer";
+import navReducer from "./src/modules/AuthModule/reducers/navReducer";
 // import productReducer from './src/modules/ProductModule/reducers';
 import axiosClient from "./src/config/axiosClient";
 
-import AppNavigator from "./src/navigators/screens/AppNavigator";
+// import AppNavigator from "./src/navigators/screens/AppNavigator";
+import {
+  AppNavigator,
+  middleware
+} from "./src/navigators/screens/AppNavigator";
 import SignUpContainer from "./src/modules/AuthModule/containers/SignUpContainer";
 
 // MIDDLEWARE
-const middewares = [thunkMiddleware];
+const middewares = [thunkMiddleware, middleware];
 
 const rootReducer = combineReducers({
-  errorReducer
+  errorReducer,
+  navReducer
   // productReducer
 });
 const initialState = {};
