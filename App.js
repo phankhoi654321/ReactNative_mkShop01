@@ -28,7 +28,6 @@ const initialState = {};
 // STORE
 const store = createStore(
   rootReducer,
-  initialState,
   composeWithDevTools(applyMiddleware(...middewares))
 );
 

@@ -15,20 +15,14 @@ const middleware = createReactNavigationReduxMiddleware(
 
 const RootNavigator = createSwitchNavigator({
   Stack: StackNavigator
-  //   Drawer: DrawerNavigator
-  // Tab: TabNavigator,
+  //Drawer: DrawerNavigator,
+  //Tab: TabNavigator,
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, "root");
 
-// const AppNavigator = createSwitchNavigator({
-//   Stack: StackNavigator
-//   //   Drawer: DrawerNavigator
-//   // Tab: TabNavigator,
-// });
-
 const mapStateToProps = state => ({
-  state: state.nav
+  state: state.navReducer
 });
 
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);
