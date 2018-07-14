@@ -6,7 +6,7 @@ import {
   createReactNavigationReduxMiddleware
 } from "react-navigation-redux-helpers";
 // import TabNavigator from './TabNavigator';
-// import DrawerNavigator from './DrawerNavigator';
+import DrawerNavigator from "./DrawerNavigator";
 
 const middleware = createReactNavigationReduxMiddleware(
   "root",
@@ -14,8 +14,8 @@ const middleware = createReactNavigationReduxMiddleware(
 );
 
 const RootNavigator = createSwitchNavigator({
-  Stack: StackNavigator
-  //Drawer: DrawerNavigator,
+  Stack: StackNavigator,
+  Drawer: DrawerNavigator
   //Tab: TabNavigator,
 });
 

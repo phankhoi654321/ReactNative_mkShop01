@@ -1,0 +1,110 @@
+[
+  {
+    "id": 0,
+    "title": "Ultra Cotton",
+    "categoty": "T-Shirts",
+    "price": 10,
+    "description":
+      "Solids: 100% Cotton; Sport Grey And Antique Heather: 90% Cotton, 10% Polyester; Safety Colors And Heather: 50% Cotton, 50% Polyeste",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/71HuLCyNNhL._UX679_.jpg",
+    "web":
+      "https://www.amazon.com/Gildan-Cotton-T-Shirt-2-Pack-2X-Large/dp/B07611Y7N7/ref=lp_15697821011_1_6?s=apparel&ie=UTF8&qid=1531544178&sr=1-6&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 1,
+    "title": "Premium Fitted",
+    "categoty": "T-Shirts",
+    "price": 14,
+    "description":
+      "Solids: 100% Cotton; Comfortable And Fit; Wear This Premium Shirt And You've Got It Made With Super-soft Suede.",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/51GHvzbjBlL._UX679_.jpg",
+    "web":
+      "https://www.amazon.com/Next-Level-Apparel-Premium-Fitted/dp/B07DHFQZ81/ref=lp_15697821011_1_26?s=apparel&ie=UTF8&qid=1531544178&sr=1-26&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 2,
+    "title": "Carhartt Pocket",
+    "categoty": "T-Shirts",
+    "price": 15,
+    "description":
+      "Men's short-sleeve workwear t-shirt is a 100% Cotton Jersey knit with a rib-knit collar, and a left chest pocket. It has also been designed with side-seamed construction to minimize twisting and maximize comfort",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/81157f2TGLL._UY879_.jpg",
+    "web":
+      "https://www.amazon.com/Carhartt-Workwear-Pocket-Short-Sleeve-T-Shirt/dp/B0000ANHT7/ref=lp_15697821011_1_4?s=apparel&ie=UTF8&qid=1531544178&sr=1-4&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 3,
+    "title": "Champion Jersey",
+    "categoty": "T-Shirts",
+    "price": 15,
+    "description":
+      "Champion athletic wear has outfitted athletes in authentic athletic apparel before, during and after the game.",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/91W85dtgepL._SX679_.jpg",
+    "web":
+      "https://www.amazon.com/Champion-Classic-T-Shirt-Oatmeal-Heather/dp/B01MXUWXSD/ref=lp_15697821011_1_7?s=apparel&ie=UTF8&qid=1531544178&sr=1-7&nodeID=15697821011&psd=1&th=1"
+  },
+  {
+    "id": 4,
+    "title": "Short-Sleeve",
+    "categoty": "T-Shirts",
+    "price": 18,
+    "description":
+      "Amazon Essentials keeps you moving from the moment you step out the door. You'll find performance tees, hoodies, gym shorts, and more made with quality fabrics at stock-up prices. ",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/91I%2BOa166TL._UX679_.jpg",
+    "web":
+      "https://www.amazon.com/Amazon-Essentials-Performance-Short-Sleeve-T-Shirts/dp/B071LPZNLQ/ref=lp_15697821011_1_16?s=apparel&ie=UTF8&qid=1531544178&sr=1-16&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 5,
+    "title": "Champion LIFE",
+    "categoty": "T-Shirts",
+    "price": 12,
+    "description":
+      "100% Cotton, Pull On closure, Machine wash, premium grapics",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/61KpAkZHySL._UX522_.jpg",
+    "web":
+      "https://www.amazon.com/Champion-LIFE-Mens-Heritage-XX-Large/dp/B079MFVG4Q/ref=sr_1_95?s=apparel&ie=UTF8&qid=1531553041&sr=1-95&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 6,
+    "title": "Penguin Short",
+    "categoty": "T-Shirts",
+    "price": 49,
+    "description":
+      "Show off the power of contrasting shades that drape across the chest and give your style a buff edge.",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/91LigUyxhlL._UX569_.jpg",
+    "web":
+      "https://www.amazon.com/Original-Penguin-Sleeve-Blocked-Sapphire/dp/B07617WJNW/ref=sr_1_96?s=apparel&ie=UTF8&qid=1531553041&sr=1-96&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 7,
+    "title": "Hanes Short",
+    "categoty": "T-Shirts",
+    "price": 14,
+    "description":
+      "The Hanes cool dri t-shirt for men is a polyester performance tee that actually performs. ",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/81CGHD-gWPL._UX679_.jpg",
+    "web":
+      "https://www.amazon.com/Hanes-Short-Sleeve-T-Shirt-White/dp/B00KQFK8FQ/ref=sr_1_94?s=apparel&ie=UTF8&qid=1531553041&sr=1-94&nodeID=15697821011&psd=1"
+  },
+  {
+    "id": 8,
+    "title": "Colortone Youth",
+    "categoty": "T-Shirts",
+    "price": 8,
+    "description":
+      "Colortone tie dye apparel is all hand dyed for a superior look and feel. No two garments are exactly alike.",
+    "image":
+      "https://images-na.ssl-images-amazon.com/images/I/81olgR8bFWL._UX679_.jpg",
+    "web":
+      "https://www.amazon.com/Colortone-Tie-Dye-Wild-Ride-Medium/dp/B07CPM2FNJ/ref=sr_1_115?s=apparel&ie=UTF8&qid=1531553387&sr=1-115&nodeID=15697821011&psd=1"
+  }
+]

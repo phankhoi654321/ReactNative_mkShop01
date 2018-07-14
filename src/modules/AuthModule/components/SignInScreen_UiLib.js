@@ -14,6 +14,23 @@ import ShoppingBackground from "../../../images/shopping.jpg";
 import SignUpScreen_UiLib from "./SignUpScreen_UiLib";
 
 export default class SignInScreen_UiLib extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      errors: {}
+    };
+    this.onLogin = this.onLogin.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.errors);
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   componentDidMount() {
     //Retrieve the current registration token   https://rnfirebase.io/docs/v4.2.x/messaging/device-token
     firebase
@@ -36,12 +53,21 @@ export default class SignInScreen_UiLib extends Component {
       });
   }
 
+  onLogin(e) {
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(user);
+  }
+
   // onFocus() {
   //   this.setState({
   //     borderBottomColor: "green"
   //   });
   // }
   render() {
+    const { errors } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <Image
@@ -62,6 +88,11 @@ export default class SignInScreen_UiLib extends Component {
             floatingPlaceholder
             underlineColor="#ee5253"
             dark10
+            onChangeText={text => {
+              this.setState({ email: text });
+            }}
+            autoCapitalize="none"
+            error={errors.email}
           />
           <TextInput
             text50
@@ -72,9 +103,20 @@ export default class SignInScreen_UiLib extends Component {
             floatingPlaceholderColor="#ee5253"
             underlineColor="#ee5253"
             dark10
+            onChangeText={text => {
+              this.setState({ password: text });
+            }}
+            autoCapitalize="none"
+            error={errors.password}
           />
           <View marginT-50 center>
-            <Button text70 white background-orange30 label="Login" />
+            <Button
+              text70
+              white
+              background-orange30
+              label="Login"
+              onPress={this.onLogin}
+            />
             <Button
               link
               text70

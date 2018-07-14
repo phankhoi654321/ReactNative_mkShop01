@@ -19,3 +19,23 @@ export const registerUser = userdata => dispatch => {
         });
     });
 };
+
+export const loginUser = userdata => dispatch => {
+  axiosClient
+    .post("/api/users/login", userdata)
+    .then(res => {
+      dispatch({
+        type: ActionTypes.SET_CURRENT_USER,
+        payload: res.data
+      });
+      dispatch(NavigationActions.navigate({ routeName: "Drawer" }));
+    })
+    // err.response tra ve nhung error tu server, .data de lay error
+    .catch(err => {
+      console.log(err.response.data),
+        dispatch({
+          type: ActionTypes.GET_ERRORS,
+          payload: err.response.data
+        });
+    });
+};
