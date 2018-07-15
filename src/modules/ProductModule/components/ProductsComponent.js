@@ -13,6 +13,7 @@ import {
 import { Card, ListItem, Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
+
 var deviceWidth = Dimensions.get("window").width;
 var deviceHeight = Dimensions.get("window").height;
 
@@ -26,8 +27,6 @@ class RenderItem extends Component {
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
           overflow: "hidden",
-          backgroundColor: "#ecf0f1",
-          resizeMode: "center"
         }}
         containerStyle={{
           flex: 1,
@@ -77,6 +76,10 @@ class RenderItem extends Component {
             marginRight: 0,
             marginBottom: 0
           }}
+          onPress={() => {
+            console.log("on press");
+            this.props.addToCart(this.props.item, 1);
+          }}
           title="Add To Cart"
         />
       </Card>
@@ -88,7 +91,7 @@ export default class ProductsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "grid"
+
     };
   }
   render() {
@@ -100,11 +103,11 @@ export default class ProductsComponent extends Component {
             renderItem={({ item, index }) => {
               // console.log(item);
               // console.log(`Item = ${JSON.stringify(item)}`);
-              return <RenderItem item={item} index={index} />;
+              return <RenderItem item={item} index={index} addToCart={this.props.addToCart} />;
             }}
             // keyExtractor={(item, index) => index.toString()}
             numColumns={2}
-            // key={this.state.mode === "list" ? 1 : 0}
+          // key={this.state.mode === "list" ? 1 : 0}
           />
         </View>
       </View>

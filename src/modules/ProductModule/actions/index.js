@@ -9,3 +9,21 @@ export const getProducts = () => {
     });
   };
 };
+
+export const addToCart = (product, quantity) => ({
+  type: ActionTypes.ADD_TO_CART,
+  product: product,
+  quantity: quantity,
+});
+
+export const increaseQuantity = (product, quantity) => ({
+  type: ActionTypes.INCREASE_QUANTITY,
+  product: product,
+  quantity: quantity,
+});
+
+export const decreaseQuantity = (product, quantity) => ({
+  type: ActionTypes.DECREASE_QUANTITY,
+  product: product,
+  quantity: quantity,
+});

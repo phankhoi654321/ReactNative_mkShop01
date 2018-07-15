@@ -12,7 +12,6 @@ const ProductStackNavigator = createStackNavigator({
       headerTintColor: "white"
     }
   },
-
   ProductDetailScreen: ProductDetailScreen
 });
 

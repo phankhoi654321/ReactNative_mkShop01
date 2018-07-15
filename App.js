@@ -7,6 +7,7 @@ import authReducer from "./src/modules/AuthModule/reducers/authReducer";
 import errorReducer from "./src/modules/AuthModule/reducers/errorReducer";
 import navReducer from "./src/modules/AuthModule/reducers/navReducer";
 import productReducer from "./src/modules/ProductModule/reducers/productReducer";
+import shoppingCartReducer from "./src/modules/ProductModule/reducers/shoppingCartReducer";
 import axiosClient from "./src/config/axiosClient";
 
 // import AppNavigator from "./src/navigators/screens/AppNavigator";
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   authReducer,
   errorReducer,
   navReducer,
-  productReducer
+  productReducer,
+  shoppingCartReducer
 });
 const initialState = {};
 

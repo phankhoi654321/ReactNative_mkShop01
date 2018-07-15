@@ -53,15 +53,7 @@ const routeConfigs = {
           }}
         >
           <IconBadge
-            MainElement={
-              // <Ionicons
-              //   // style={{ margin: 10 }}
-              //   name={"cart"}
-              //   size={25}
-              //   color={"white"}
-              // />
-              <Icon style={styles.icon} name="cart" size={24} />
-            }
+            MainElement={<Icon style={styles.icon} name="cart" size={24} />}
             BadgeElement={<Text style={{ color: "#FFFFFF" }}>{0}</Text>}
             IconBadgeStyle={{
               width: 15,

@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
-import { DrawerActions } from 'react-navigation';
+import React, { Component } from "react";
+import { View, Text, FlatList } from "react-native";
+import ShoppingCartContainer from "../../../modules/ProductModule/containers/ShoppingCartContainer";
+import ShoppingCartTotalContainer from "../../../modules/ProductModule/containers/ShoppingCartTotalContainer";
 
-export default class CheckoutScreen extends Component {
+export default class ProductScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'pink' }}>
-        <Text> CheckoutScreen </Text>
-        <Button title="Go to DrawerNavigator" onPress={() => {
-          this.props.navigation.dispatch(DrawerActions.openDrawer());
-        }} />
+      <View>
+        <View>
+          <ShoppingCartContainer navigation={this.props.navigation} />
+        </View>
+        <View style={{ paddingTop: 6 }}>
+          <ShoppingCartTotalContainer />
+        </View>
       </View>
     );
   }
