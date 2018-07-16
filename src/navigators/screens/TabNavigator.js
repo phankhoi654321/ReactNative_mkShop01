@@ -4,14 +4,17 @@ import { createBottomTabNavigator, DrawerActions } from "react-navigation";
 import HomeScreen from "./TabScreens/HomeScreen";
 import IconBadge from "react-native-icon-badge";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { connect } from 'react-redux';
 
 import CheckoutScreen from "./TabScreens/CheckoutScreen";
 import HomeStackNavigator from "./TabScreens/HomeStackNavigator";
 import MoreStackNavigator from "./TabScreens/MoreStackNavigator";
+import QuantityComponent from "../../modules/ProductModule/components/QuantityComponent";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import AccountScreen from "./TabScreens/AccountScreen";
 import ProductStackNavigator from "./TabScreens/ProductStackNavigatior";
+import { Button } from "react-native-elements";
 
 const styles = StyleSheet.create({
   icon: {
@@ -41,8 +44,10 @@ const routeConfigs = {
   },
   ShoppingCartScreen: {
     screen: CheckoutScreen,
-    navigationOptions: {
+    // navigationOptions: {
+    navigationOptions: ({ navigation }) => ({
       title: "Carts",
+
       // tabBarIcon: <Icon style={styles.icon} name="cart" size={24} />
       tabBarIcon: (
         <View
@@ -54,11 +59,11 @@ const routeConfigs = {
         >
           <IconBadge
             MainElement={<Icon style={styles.icon} name="cart" size={24} />}
-            BadgeElement={<Text style={{ color: "#FFFFFF" }}>{0}</Text>}
+            BadgeElement={<QuantityComponent />}
             IconBadgeStyle={{
               width: 15,
               height: 15,
-              backgroundColor: "#e67e22",
+              backgroundColor: "#1abc9c",
               position: "absolute",
               left: 15,
               top: -2
@@ -67,7 +72,7 @@ const routeConfigs = {
           />
         </View>
       )
-    }
+    })
   },
   AccountScreen: {
     screen: AccountScreen,
@@ -102,4 +107,12 @@ const TabNavigator = createBottomTabNavigator(
   bottomTabNavigatorConfig
 );
 
+// const mapStateToProps = (state) => ({
+//   totalQuantity: state.shoppingCartReducer.totalQuantity,
+// })
+
+
+// export default connect(mapStateToProps)(TabNavigator);
 export default TabNavigator;
+
+

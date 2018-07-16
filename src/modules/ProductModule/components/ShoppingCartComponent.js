@@ -220,7 +220,7 @@ export default class ShoppingCartComponent extends Component {
       // <View>
 
       <View>
-        <Header />
+        {/* <Header /> */}
         <FlatList
           data={this.props.addedProducts}
           renderItem={({ item, index }) => {

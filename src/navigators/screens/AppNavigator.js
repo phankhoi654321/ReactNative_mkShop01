@@ -5,7 +5,7 @@ import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware
 } from "react-navigation-redux-helpers";
-// import TabNavigator from './TabNavigator';
+import TabNavigator from './TabNavigator';
 import DrawerNavigator from "./DrawerNavigator";
 
 const middleware = createReactNavigationReduxMiddleware(
@@ -15,14 +15,15 @@ const middleware = createReactNavigationReduxMiddleware(
 
 const RootNavigator = createSwitchNavigator({
   Stack: StackNavigator,
-  Drawer: DrawerNavigator
-  //Tab: TabNavigator,
+  Drawer: DrawerNavigator,
+  // Tab: TabNavigator,
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, "root");
 
 const mapStateToProps = state => ({
-  state: state.navReducer
+  state: state.navReducer,
+  // totalQuantity: state.shoppingCartReducer.totalQuantity
 });
 
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);

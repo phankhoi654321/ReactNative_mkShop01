@@ -5,13 +5,21 @@ const defaultState = {
   products: [],
   addedProducts: [],
   total: 0,
-  shoppingCartVisible: false
+  shoppingCartVisible: false,
+  totalQuantity: 0
 };
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 updateTotal = (items) => {
   return items.reduce(
     (total, item) =>  //item is currentValue in array items
       (total + (item.product.price * item.quantity)), 0
+  );
+};
+
+updateQuantity = (items) => {
+  return items.reduce(
+    (quantity, item) =>  //item is currentValue in array items
+      (quantity + item.quantity), 0
   );
 };
 
@@ -39,12 +47,14 @@ const shoppingCartReducer = (state = defaultState, action) => {
       // FIND ITEM BEFORE ADD TO CART, IF EXISTS THEN UPDATE QUANTITY, ELSE ADD NEW ITEM WITH QUANTITY = 1
       var found = [...state.addedProducts].find(item => item.product.id === action.product.id);
       if (found) {
-        found.quantity++;
+        var quant = found.quantity++;
         var total = updateTotal([...state.addedProducts]);
         return {
           ...state,
           addedProducts: [...state.addedProducts],
-          total: total
+          total: total,
+          // totalQuantity: quant + action.quantity
+          totalQuantity: updateQuantity([...state.addedProducts])
         };
       }
 
@@ -54,7 +64,9 @@ const shoppingCartReducer = (state = defaultState, action) => {
       return {
         ...state,
         addedProducts: addedProducts,
-        total: total
+        total: total,
+        // totalQuantity: action.quantity
+        totalQuantity: action.quantity + updateQuantity([...state.addedProducts])
       };
     case ActionTypes.INCREASE_QUANTITY:
       var found = [...state.addedProducts].find(item => item.product.id === action.product.id);
@@ -65,7 +77,8 @@ const shoppingCartReducer = (state = defaultState, action) => {
       return {
         ...state,
         addedProducts: [...state.addedProducts],
-        total: total
+        total: total,
+        totalQuantity: updateQuantity([...state.addedProducts])
       };
     case ActionTypes.DECREASE_QUANTITY:
       var found = [...state.addedProducts].find(item => item.product.id === action.product.id);
@@ -86,10 +99,10 @@ const shoppingCartReducer = (state = defaultState, action) => {
         return {
           ...state,
           addedProducts: [...state.addedProducts],
-          total: total
+          total: total,
+          totalQuantity: updateQuantity([...state.addedProducts])
         };
       }
-
     default:
       return state;
   }

@@ -27,3 +27,8 @@ export const decreaseQuantity = (product, quantity) => ({
   product: product,
   quantity: quantity,
 });
+
+export const totalQuantity = (product) => ({
+  type: ActionTypes.TOTAL_QUANTITY,
+  product: product,
+});
