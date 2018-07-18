@@ -26,7 +26,8 @@ export const loginUser = userdata => dispatch => {
     .then(res => {
       dispatch({
         type: ActionTypes.SET_CURRENT_USER,
-        payload: res.data
+        payload: res.data,
+        errors: {}
       });
       dispatch(NavigationActions.navigate({ routeName: "Drawer" }));
     })

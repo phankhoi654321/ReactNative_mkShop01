@@ -4,7 +4,7 @@ import { loginUser } from "../actions";
 import SignInScreen_UiLib from "../components/SignInScreen_UiLib";
 
 const mapStateToProps = state => {
-  console.log(state.errorReducer);
+  // console.log(state.errorReducer);
   return {
     errors: state.errorReducer,
     auth: state.authReducer

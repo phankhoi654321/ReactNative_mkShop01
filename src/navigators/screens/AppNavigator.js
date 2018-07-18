@@ -23,7 +23,6 @@ const AppWithNavigationState = reduxifyNavigator(RootNavigator, "root");
 
 const mapStateToProps = state => ({
   state: state.navReducer,
-  // totalQuantity: state.shoppingCartReducer.totalQuantity
 });
 
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);

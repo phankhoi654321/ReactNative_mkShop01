@@ -3,7 +3,8 @@ import isEmpty from "../components/is-empty";
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  // errors: {}
 };
 
 export default (state = initialState, action) => {
@@ -12,7 +13,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        user: action.payload
+        user: action.payload,
+        // errors: action.errors
       };
     default:
       return state;

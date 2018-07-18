@@ -90,7 +90,7 @@ import {
   Image,
   ActivityIndicator
 } from "react-native";
-// import { Card, ListItem, Button } from "react-native-elements";
+import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 
@@ -157,6 +157,43 @@ class RenderItem extends Component {
             >
               $ {this.props.item.price}
             </Text>
+            <Button
+              icon={{ name: "delete", fontSize: 12 }}
+              backgroundColor="#bdc3c7"
+              buttonStyle={{
+                borderRadius: 20,
+                // padding: 0,
+                paddingLeft: 17,
+                // paddingHorizontal: 15,
+                paddingVertical: 10,
+                marginLeft: 50,
+                // marginBottom: 0,
+                width: deviceWidth / 7,
+                // width: 50
+                // height: deviceHeight / 10
+
+
+              }}
+              onPress={() => {
+                // console.log("on press");
+                this.props.removeItem(this.props.item);
+              }}
+            // title="Add To Cart"
+            />
+            {/* <TouchableOpacity
+              onPress={() => {
+                // console.log("on press");
+                this.props.removeItem(this.props.item);
+              }}>
+              <Text style={{
+                alignItems: 'center',
+                padding: 3,
+                marginTop: 8,
+                marginLeft: 10,
+                fontSize: 16,
+                color: "#3498db"
+              }}> Remove Item </Text>
+            </TouchableOpacity> */}
           </View>
           <View style={{
             flex: 1,
@@ -168,7 +205,7 @@ class RenderItem extends Component {
             </View>
             <TouchableOpacity
               onPress={() => {
-                console.log("on press");
+                // console.log("on press");
                 this.props.increaseQuantity(this.props.item, 1);
               }}>
               <Text style={{
@@ -227,7 +264,7 @@ export default class ShoppingCartComponent extends Component {
 
             // console.log(item);
             // console.log(`Item = ${JSON.stringify(item.product)}`);
-            return <RenderItem quantity={item.quantity} item={item.product} index={index} increaseQuantity={this.props.increaseQuantity} decreaseQuantity={this.props.decreaseQuantity} />;
+            return <RenderItem quantity={item.quantity} item={item.product} index={index} increaseQuantity={this.props.increaseQuantity} decreaseQuantity={this.props.decreaseQuantity} removeItem={this.props.removeItem} />;
           }}
         // keyExtractor={(item, index) => index.toString()}
         // numColumns={2}

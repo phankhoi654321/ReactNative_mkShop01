@@ -68,16 +68,21 @@ class RenderItem extends Component {
         </View>
 
         <Button
-          icon={{ name: "shopping-cart" }}
+          icon={{ name: "shopping-cart", fontSize: 10 }}
           backgroundColor="#03A9F4"
           buttonStyle={{
-            borderRadius: 50,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0
+            borderRadius: 20,
+            padding: 5
+            // marginLeft: 0,
+            // marginRight: 0,
+            // marginBottom: 0,
+
+          }}
+          textStyle={{
+            fontSize: 14
           }}
           onPress={() => {
-            console.log("on press");
+            // console.log("on press");
             this.props.addToCart(this.props.item, 1);
           }}
           title="Add To Cart"

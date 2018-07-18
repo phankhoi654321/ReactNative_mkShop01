@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ScrollView } from "react-native";
+import { View, Text, FlatList, ScrollView, Dimensions } from "react-native";
 import ShoppingCartContainer from "../../../modules/ProductModule/containers/ShoppingCartContainer";
 import ShoppingCartTotalContainer from "../../../modules/ProductModule/containers/ShoppingCartTotalContainer";
 
 import QuantityComponent from "../../../modules/ProductModule/components/QuantityComponent";
 
+var deviceWidth = Dimensions.get("window").width;
+var deviceHeight = Dimensions.get("window").height;
 
 //Make a component Header
 const Header = props => {
@@ -45,14 +47,16 @@ export default class ProductScreen extends Component {
     return (
       <View style={{}}>
         <Header />
-        <ScrollView>
+        <ScrollView style={{ marginBottom: 100 }}>
           <View>
             <ShoppingCartContainer navigation={this.props.navigation} />
           </View>
-          <View style={{ paddingTop: 6, paddingBottom: 60 }}>
-            <ShoppingCartTotalContainer />
-          </View>
         </ScrollView>
+        {/* <View style={{ paddingTop: 6, paddingBottom: 60, position: "absolute", bottom: 60 }}> */}
+        <View style={{ paddingTop: 6, paddingBottom: 60, position: "absolute", top: deviceHeight - 100, width: deviceWidth }}>
+          <ShoppingCartTotalContainer />
+        </View>
+
       </View>
 
     );

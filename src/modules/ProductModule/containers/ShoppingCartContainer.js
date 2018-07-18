@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 // import { removeFromCart, hideShoppingCart } from '../Actions/shoppingCartAction';
 import ShoppingCartComponent from '../components/ShoppingCartComponent';
-import { increaseQuantity, decreaseQuantity } from "../actions";
+import { increaseQuantity, decreaseQuantity, removeItem } from "../actions";
 
 const mapStateToProps = (state) => ({
     addedProducts: state.shoppingCartReducer.addedProducts,
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     increaseQuantity,
-    decreaseQuantity
-    // removeFromCart,
+    decreaseQuantity,
+    removeItem
     // hideShoppingCart,
 };
 

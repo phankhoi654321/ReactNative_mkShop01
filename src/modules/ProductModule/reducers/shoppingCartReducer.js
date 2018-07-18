@@ -103,6 +103,16 @@ const shoppingCartReducer = (state = defaultState, action) => {
           totalQuantity: updateQuantity([...state.addedProducts])
         };
       }
+    case ActionTypes.REMOVE_FROM_CART:  //https://stackoverflow.com/questions/5767325/how-do-i-remove-a-particular-element-from-an-array-in-javascript
+      var found = [...state.addedProducts].find(item => item.product.id === action.product.id); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+      var addedProducts = [...state.addedProducts].filter(item => item !== found) //I use "array.filter(...)" function to remove unwanted items from array, this function doesn't change the original array and creates a new one.
+      var total = updateTotal(addedProducts);
+      return {
+        ...state,
+        addedProducts: addedProducts,
+        total: total,
+        totalQuantity: updateQuantity(addedProducts)
+      };
     default:
       return state;
   }

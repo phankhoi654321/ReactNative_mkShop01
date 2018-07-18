@@ -25,15 +25,35 @@ export default class SignInScreen_UiLib extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.errors);
+    // console.log(nextProps.errors);
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
   }
 
+  // componentDidMount() {
+  //   //Retrieve the current registration token   https://rnfirebase.io/docs/v4.2.x/messaging/device-token
+  //   firebase
+  //     .messaging()
+  //     .getToken()
+  //     .then(fcmToken => {
+  //       if (fcmToken) {
+  //         // user has a device token
+  //         console.log("Token: ", fcmToken);
+  //       } else {
+  //         // user doesn't have a device token yet
+  //       }
+  //     });
+
+  //   firebase
+  //     .messaging()
+  //     .hasPermission()
+  //     .then(enabled => {
+  //       console.log("HasPermission: ", enabled);
+  //     });
+  // }
   componentDidMount() {
-    //Retrieve the current registration token   https://rnfirebase.io/docs/v4.2.x/messaging/device-token
-    firebase
+    this.onTokenRefreshListener = firebase
       .messaging()
       .getToken()
       .then(fcmToken => {
@@ -51,6 +71,10 @@ export default class SignInScreen_UiLib extends Component {
       .then(enabled => {
         console.log("HasPermission: ", enabled);
       });
+  }
+
+  componentWillUnmount() {
+    this.onTokenRefreshListener();
   }
 
   onLogin(e) {

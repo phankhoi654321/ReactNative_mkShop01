@@ -32,3 +32,8 @@ export const totalQuantity = (product) => ({
   type: ActionTypes.TOTAL_QUANTITY,
   product: product,
 });
+
+export const removeItem = (product) => ({
+  type: ActionTypes.REMOVE_FROM_CART,
+  product: product,
+});
